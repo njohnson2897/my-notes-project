@@ -44,21 +44,29 @@ app.post('/api/notes', (req, res) => {
 });
 
 app.delete('/api/notes/:id', (req, res) => {
-    const id = req.params.id
-    console.log(id)
-    // const notes = fs.readFile('./db/db.json', 'utf-8', (err, data) => {
-    //     if(err) {
-    //         console.log(err)
-    //      } else {
-    //         for (let i=0; i<data.length; i++) {
-    //             if (data[i].note_id === id) {
-    //                 data.splice(i, 1);
-    //             };
-    //         };
-    //      };
-    // });
-    
-    res.json("Successfully deleted the specified post.")
+    const id = req.params.id;
+    console.log(id);
+
+    fs.readFile('./db/db.json', 'utf-8', (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.json({ error: 'Failed to read data.' });
+        }
+
+        let notes = JSON.parse(data);
+
+        const filteredNotes = notes.filter(note => note.note_id !== id);
+        console.log(filteredNotes);
+
+        fs.writeFile('./db/db.json', JSON.stringify(filteredNotes, null, 2), err => {
+            if (err) {
+                console.error(err);
+                return res.json('Failed to rewrite to db.json.' );
+            }
+
+            res.json("Successfully deleted the specified note.");
+        });
+    });
 });
 
 
