@@ -1,7 +1,7 @@
 // imports the necessary modules and functions
 const express = require('express');
 const path = require('path');
-const { readFromFile } = require('./helpers/fsUtils.js')
+const { readFromFile, writeToFile, readAndAppend } = require('./helpers/fsUtils.js')
 
 // PORT optionality allows app to be run locally or deployed on a platform 
 const PORT = process.env.port || 3001; 
