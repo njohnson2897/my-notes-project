@@ -24,6 +24,7 @@ app.get('/notes', (req, res) =>
 app.get('/api/notes', (req, res) =>
     readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data))));
 
+// POST route for /api/notes to create a new note when the user clicks the "save note" button
 app.post('/api/notes', (req, res) => {
     console.log(req.body);
 
@@ -43,10 +44,11 @@ app.post('/api/notes', (req, res) => {
     };
 });
 
+// DELETE route for a specific note that a user clicks the delete button for
 app.delete('/api/notes/:id', (req, res) => {
     const id = req.params.id;
     console.log(id);
-
+// reads from the db.json file to get the data so that the note IDs can be accessed and compared
     fs.readFile('./db/db.json', 'utf-8', (err, data) => {
         if (err) {
             console.error(err);
@@ -54,16 +56,15 @@ app.delete('/api/notes/:id', (req, res) => {
         }
 
         let notes = JSON.parse(data);
-
+// makes a new array of notes that have an ID  that DOES NOT match the note clicked by the user
         const filteredNotes = notes.filter(note => note.note_id !== id);
         console.log(filteredNotes);
-
+// overwrites file with the new array that no longer has the deleted note
         fs.writeFile('./db/db.json', JSON.stringify(filteredNotes, null, 2), err => {
             if (err) {
                 console.error(err);
                 return res.json('Failed to rewrite to db.json.' );
             }
-
             res.json("Successfully deleted the specified note.");
         });
     });
@@ -77,7 +78,7 @@ app.get('*', (req, res) =>
 
 
 
-
+// tells the application to listen at either port 3001 or whatever port render chooses
 app.listen(PORT, () =>
     console.log(`App listening at http://localhost:${PORT}`)
 );
