@@ -7,13 +7,15 @@ This project entailed the addition of a back-end to a front-end application that
 N/A
 
 ## Usage
-Upon running the application, this is a screenshot of what the landing page will look like.  
-![svg generator project screenshot](./images/svg-generator-prompts-screenshot.JPG)
+Upon running the application, this is a screenshot of what the landing page will look like:
 
-Following the completion of all of the prompts, an .svg file will be generated in the "output" folder that will contain a logo looking similar to this (varying depending on user responses):
+![notes landing page screenshot](./images/notes-landing-page.JPG)
 
-![sample generated svg screenshot](./images/svg-output-screenshot.JPG)
+When you click on the "Get Started" button on the landing page, you will be taken to the notes page where you can see previously logged notes and log new notes:
 
+![notes page screenshot](./images/notes-page.JPG)
+
+If the user would like to see the description of a previously logged note, they can click on it on the left-hand sidebar and the right portion of the screen will be populated with the information from that particular note.
 
 ## Contributing
 N/A
