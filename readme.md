@@ -5,7 +5,7 @@ This project entailed the addition of a back-end to a front-end application that
 
 ## Installation
 No installation necessary, the application can be accessed at the following link: 
-[Note Taking Application][https://my-notes-project.onrender.com/]
+[Note Taking Application](https://my-notes-project.onrender.com/)
 
 ## Usage
 Upon running the application, this is a screenshot of what the landing page will look like:
