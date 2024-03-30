@@ -4,7 +4,8 @@
 This project entailed the addition of a back-end to a front-end application that allows users to write down notes and descriptions and save them to a database to be reminded of them when looking again at the app.
 
 ## Installation
-N/A
+No installation necessary, the application can be accessed at the following link: 
+[Note Taking Application][https://my-notes-project.onrender.com/]
 
 ## Usage
 Upon running the application, this is a screenshot of what the landing page will look like:
